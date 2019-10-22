@@ -11,9 +11,11 @@ namespace MediaPerf.SendPdf.App
     {
         static void Main(string[] args)
         {
+            PDFManager.GetMultipleDataSet();
+
             string pdfPath = @"C:\Users\Sweet Family\Desktop\PdfFilesPath";
 
-            PDFManager.CreatePDF(pdfPath);
+            //PDFManager.CreatePDF(pdfPath);
 
             Console.WriteLine("The End.");
         }

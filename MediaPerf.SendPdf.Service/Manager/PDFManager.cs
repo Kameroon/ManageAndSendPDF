@@ -3,6 +3,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.draw;
 using MediaPerf.SendPdf.Models.Models;
 using MediaPerf.SendPdf.Repository.Helpers;
+using MediaPerf.SendPdf.Repository.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,6 +18,8 @@ namespace MediaPerf.SendPdf.Service.Manager
 {
     public class PDFManager
     {
+        // https://www.davepaquette.com/archive/2018/01/22/loading-an-object-graph-with-dapper.aspx
+
 
         private static Report _report = new Report();
 
@@ -553,6 +556,11 @@ namespace MediaPerf.SendPdf.Service.Manager
         }
 
         #endregion
+
+        public static void GetMultipleDataSet()
+        {
+            PDFRepository.GetData(); 
+        }
     }
 
 }
