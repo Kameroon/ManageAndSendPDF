@@ -56,6 +56,7 @@
     <Compile Include="MailService\MailConsolidateHelper.cs" />
     <Compile Include="MailService\SendEmailHelper.cs" />
     <Compile Include="MailService\Supplier.cs" />
+    <Compile Include="Manager\IPDFManager.cs" />
     <Compile Include="Manager\PDFManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

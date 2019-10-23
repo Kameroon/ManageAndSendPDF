@@ -43,7 +43,12 @@
   <ItemGroup>
     <Compile Include="Models\FooterPage.cs" />
     <Compile Include="Models\HeaderPage.cs" />
-    <Compile Include="Models\PDFData.cs" />
+    <Compile Include="Models\IAuthor.cs" />
+    <Compile Include="Models\IFooterPage.cs" />
+    <Compile Include="Models\IHeaderPage.cs" />
+    <Compile Include="Models\IReport.cs" />
+    <Compile Include="Models\IRoyaltyFee.cs" />
+    <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\RoyaltyFee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

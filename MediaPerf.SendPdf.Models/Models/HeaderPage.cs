@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaPerf.SendPdf.Models.Models
 {
-    public class HeaderPage
+    public class HeaderPage : IHeaderPage
     {
         public string Destinataire { get; set; }
         public string BfpParam3 { get; set; }

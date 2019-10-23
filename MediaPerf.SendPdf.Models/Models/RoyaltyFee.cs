@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaPerf.SendPdf.Models.Models
 {
-    public class RoyaltyFee
+    public class RoyaltyFee : IRoyaltyFee
     {
 
         public long IdPv { get; set; }

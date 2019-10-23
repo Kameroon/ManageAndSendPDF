@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaPerf.SendPdf.Models.Models
 {
-    public class Report
+    public class Report : IReport
     {
         public int CountPv { get; set; }
         public int CountCampagne { get; set; }

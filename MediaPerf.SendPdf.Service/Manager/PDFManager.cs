@@ -16,12 +16,23 @@ using System.Threading.Tasks;
 
 namespace MediaPerf.SendPdf.Service.Manager
 {
-    public class PDFManager
+    public class PDFManager : IPDFManager
     {
         // https://www.davepaquette.com/archive/2018/01/22/loading-an-object-graph-with-dapper.aspx
 
 
-        private static Report _report = new Report();
+        private IReport _report = null;
+        private IPDFRepository _pDFRepository = null;
+        private IConsolidateHelper _consolidateHelper = null;
+
+        public PDFManager(IReport report, 
+            IPDFRepository pDFRepository,
+            IConsolidateHelper consolidateHelper)
+        {
+            _report = report;
+            _pDFRepository = pDFRepository;
+            _consolidateHelper = consolidateHelper;
+        }
 
         // -- https://forums.asp.net/t/2000508.aspx?Pdf+File+Creation+itextsharp+multiple+user+at+sametime --
         // -- https://www.codeproject.com/Articles/691723/Csharp-Generate-and-Deliver-PDF-Files-On-Demand-fr --
@@ -33,10 +44,10 @@ namespace MediaPerf.SendPdf.Service.Manager
         /// </summary>
         /// <param name="dataTable"></param>
         /// <param name="repositoryPath"></param>
-        public static bool CreatePDF(string repositoryPath)
+        public bool CreatePDF(string repositoryPath)
         {
-            var authors = ConsolidateHelper.GetAuthors();
-            var dataTable = DataTableHelper.ToDataTable<Author>(authors);
+            var authors = _pDFRepository.GetAuthors();
+            var dataTable = DataTableHelper.ToDataTable<IAuthor>(authors);
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -87,8 +98,8 @@ namespace MediaPerf.SendPdf.Service.Manager
                     //var TableFontmini_ARBold8 = FontFactory.GetFont("Calibri", 8, Font.BOLDITALIC, BaseColor.BLACK);
                     #endregion
 
-                    // -- Populate dynamycs feelds --
-                    _report = ConsolidateHelper.ConsolidateReport(dataTable);
+                    //// -- Populate dynamycs feelds --
+                    _report = _consolidateHelper.ConsolidateReport(dataTable);
 
                     #region -- Set Header --.
                     Image imagePath = Image.GetInstance(imgPath);
@@ -559,7 +570,11 @@ namespace MediaPerf.SendPdf.Service.Manager
 
         public static void GetMultipleDataSet()
         {
-            PDFRepository.GetData(); 
+            //PDFRepository.GetSingleDataObject();
+
+            //PDFRepository.GetMultiplesDatas();
+
+            //PDFRepository.GetData(); 
         }
     }
 

@@ -1,11 +1,11 @@
-﻿using ConsoleApp.ConnectionString;
+﻿//using ConsoleApp.ConnectionString;
 using System.Configuration;
 
 namespace MediaPerf.SendPdf.Repository.Helpers
 {
-    public class ConnectionStringHelper
+    public class ConnectionStringHelper : IConnectionStringHelper
     {
-        public static string GetConnectionString()
+        public string GetConnectionString()
         {
             string connetionString = "Data Source=DESKTOP-6DSO6AT\\SQLEXPRESS; Database=JunkEFCodeFrist1; Trusted_Connection=True";
 

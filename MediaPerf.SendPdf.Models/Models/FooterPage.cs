@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaPerf.SendPdf.Models.Models
 {
-    public class FooterPage
+    public class FooterPage : IFooterPage
     {
         public long IdBFP { get; set; }
         public long TxTva { get; set; }

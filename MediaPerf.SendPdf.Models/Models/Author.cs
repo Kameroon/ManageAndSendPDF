@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaPerf.SendPdf.Models.Models
 {
-    class PDFData
-    {
-    }
-
-    public class Author
+    public class Author : IAuthor
     {
         private string name;
         private int age;
